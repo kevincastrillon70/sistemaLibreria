@@ -1,0 +1,54 @@
+﻿@model List<LibroModel>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <h5 class="card-title mt-2">Libros</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <a asp-action="Guardar" asp-controller="Libro" class="btn btn-primary w-50">Agregar Libro</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Autor</th>
+                                <th scope="col">Genero</th>
+                                <th scope="col">Fecha publicacion</th>
+                                <th scope="col">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.id</th>
+                                    <td>@item.titulo</td>
+                                    <td>@item.autor</td>
+                                    <td>@item.genero</td>
+                                    <td>@item.fechapublicacion</td>
+                                    <td>
+                                        <a asp-action="Editar" asp-controller="Libro" class="btn btn-warning" asp-route-id="@item.id">Editar</a>
+                                        <a asp-action="Eliminar" asp-controller="Libro" class="btn btn-danger" asp-route-id="@item.id">Eliminar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

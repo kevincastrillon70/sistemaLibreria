@@ -1,0 +1,54 @@
+﻿@model PrestamoModel
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Crear Prestamo</h5>
+    </div>
+    <form asp-action="Guardar" asp-controller="Prestamo" method="post">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="fechainicio" class="form-label">Fecha inicio</label>
+                    <input type="text" class="form-control" asp-for="fechainicio">
+                    <span asp-validation-for="fechainicio" class="alert text-danger" role="alert">
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <label for="fechafin" class="form-label">Fecha fin</label>
+                    <input type="text" class="form-control" asp-for="fechafin">
+                    <span asp-validation-for="fechafin" class="alert text-danger" role="alert">
+                    </span>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="idlibro" class="form-label">Libro</label>
+                    <select asp-for="idlibro" class="form-select">
+                        <option value="" selected>Seleccione libro</option>
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+                    <span asp-validation-for="idlibro" class="alert text-danger" role="alert">
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <label for="iduser" class="form-label">Cliente</label>
+                    <select asp-for="iduser" class="form-select">
+                        <option value="" selected>Seleccione Usuario</option>
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+                    <span asp-validation-for="iduser" class="alert text-danger" role="alert">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button type="submit" class="btn btn-primary w-25 p-3">Guardar</button>
+            <a asp-action="Listar" asp-controller="Prestamo" class="btn btn-danger w-25 p-3">Cancelar</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+﻿@model List<PrestamoModel>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <h5 class="card-title mt-2">Prestamos</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <a asp-action="Guardar" asp-controller="Prestamo" class="btn btn-primary w-50">Agregar Prestamo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Libro</th>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Fecha inicio</th>
+                                <th scope="col">Fecha fin</th>
+                                <th scope="col">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.id</th>
+                                    <td>@item.idlibro</td>
+                                    <td>@item.iduser</td>
+                                    <td>@item.fechainicio</td>
+                                    <td>@item.fechafin</td>
+                                    <td>
+                                        <a asp-action="Editar" asp-controller="Prestamo" class="btn btn-warning" asp-route-id="@item.id">Editar</a>
+                                        <a asp-action="Eliminar" asp-controller="Prestamo" class="btn btn-danger" asp-route-id="@item.id">Eliminar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

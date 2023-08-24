@@ -1,0 +1,24 @@
+﻿@model LibroModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Eliminar prestamo</h5>
+    </div>
+    <form asp-action="Eliminar" asp-controller="Prestamo" method="post">
+        <input type="hidden" asp-for="id">
+
+        <div class="alert alert-danger" role="alert">
+            Desea eliminar el prestamo ? : @Html.DisplayTextFor(m=> m.id)
+        </div>
+
+        <div class="card-footer text-center">
+            <button type="submit" class="btn btn-danger w-25 p-3">Eliminar</button>
+            <a asp-action="Listar" asp-controller="Prestamo" class="btn btn-warning w-25 p-3">Cancelar</a>
+        </div>
+    </form>
+</div>

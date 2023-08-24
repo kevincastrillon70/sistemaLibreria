@@ -1,0 +1,45 @@
+﻿@model LibroModel
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Crear contacto</h5>
+    </div>
+    <form asp-action="Guardar" asp-controller="Libro" method="post">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="titulo" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" asp-for="titulo">
+                    <span asp-validation-for="titulo" class="alert text-danger" role="alert">
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <label for="autor" class="form-label">Autor</label>
+                    <input type="text" class="form-control" asp-for="autor">
+                    <span asp-validation-for="autor" class="alert text-danger" role="alert">
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <label for="genero" class="form-label">Genero</label>
+                    <input type="text" class="form-control" asp-for="genero">
+                    <span asp-validation-for="genero" class="alert text-danger" role="alert">
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <label for="fechapublicacion" class="form-label">Fecha publicacion</label>
+                    <input type="text" class="form-control" asp-for="fechapublicacion">
+                    <span asp-validation-for="fechapublicacion" class="alert text-danger" role="alert">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button type="submit" class="btn btn-primary w-25 p-3">Guardar</button>
+            <a asp-action="Listar" asp-controller="Libro" class="btn btn-danger w-25 p-3">Cancelar</a>
+        </div>
+    </form>
+</div>
